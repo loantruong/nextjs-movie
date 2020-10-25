@@ -4,16 +4,16 @@ import Movie from "../components/Movie";
 import { getAllMovies } from "../lib/movies";
 
 export async function getStaticProps() {
-  const allPostsData = await getAllMovies();
+  const allMovies = await getAllMovies();
   return {
     props: {
-      allPostsData,
+      allMovies,
     },
   };
 }
 
-export default function Home({ allPostsData }) {
-  const { results } = allPostsData.params;
+export default function Home({ allMovies }) {
+  const { results } = allMovies.params;
   return (
     <div className={styles.container}>
       <Head>
@@ -21,21 +21,10 @@ export default function Home({ allPostsData }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={styles.main}>
-        {results.map((movie) => (
-          <Movie movie={movie} />
-        ))}
+        {results.map((movie, id) => (
+          <Movie movie={movie} key={id}/>
+        ))} 
       </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{" "}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
     </div>
   );
 }
