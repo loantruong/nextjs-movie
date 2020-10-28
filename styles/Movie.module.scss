@@ -2,17 +2,47 @@
   display: flex;
   border: 1px solid #252e2e;
   padding: 0px;
-  color: #c2c2c2;
   margin: 1rem;
+  // height: 280px;
 }
 .img {
   width: 190px;
   border: 1px solid #4d6766;
 }
 
-.description {
-  max-width: 200px;
-  margin: 1rem 2rem;
-  height: 190px;
+.truncateOverflow {
+  --max-lines: 8;
+  position: relative;
+  max-height: calc(var(--lh) * var(--max-lines));
   overflow: hidden;
+}
+
+.truncateOverflow::after {
+  content: "";
+  position: absolute;
+  inset-inline-end: 0; /* "right" */
+  width: 1rem;
+  height: 1rem;
+  background: white;
+}
+.description {
+  width: 170px;
+  margin: 1rem 2rem;
+
+  .details {
+    width: 175px;
+    margin: 0 0 1em 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    p {
+      margin: 0;
+    }
+  }
+
+  .ctaDetails {
+    border-radius: 18px;
+    font-size: inherit;
+    padding: 10px 20px;
+  }
 }
