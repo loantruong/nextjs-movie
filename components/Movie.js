@@ -16,9 +16,7 @@ const Movie = ({ movie }) => {
       <div className={styles.description}>
         <div className={`${styles.details} ${styles.truncateOverflow}`}>
           <h2>{title}</h2>
-          <p>
-            {overview} <span>...</span>
-          </p>
+          {overview && <p>{overview}</p>}
         </div>
         <button className={styles.ctaDetails}>
           <Link
