@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  h1 {
+    font-size: 35px;
+  }
+  .details {
+    margin: 4rem 3rem 2rem 4rem;
+    span {
+      padding: 5px 10px;
+      background: #45c79d94;
+      border-radius: 5px;
+      display: inline;
+      height: 30px;
+      font-size: 12px;
+      margin: 0 5px;
+    }
+  }
+  .overview {
+    width: 80%;
+    font-size: 18px;
+    margin: 5rem 0;
+  }
+  .title {
+    align-items: center;
+    max-width: 85%;
+    .genre {
+      background-color: #1e7257;
+      padding: 5px 10px;
+      border-radius: 5px;
+    }
+  }
+}

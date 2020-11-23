@@ -3,7 +3,7 @@ import styles from "../styles/Home.module.css";
 import Movie from "../components/Movie";
 import { getAllMovies } from "../lib/movies";
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const allMovies = await getAllMovies();
   return {
     props: {
