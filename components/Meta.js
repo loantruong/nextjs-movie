@@ -20,6 +20,7 @@ const GloablStyle = createGlobalStyle`
     line-height: 1.5;
     min-height: 100%;
     font-size: 16px;
+    background-color: #0b0a0a;
   }
   button {
     :focus {

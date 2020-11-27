@@ -2,6 +2,7 @@ import Head from "next/head";
 import styles from "../styles/Home.module.css";
 import Movie from "../components/Movie";
 import { getAllMovies } from "../lib/movies";
+import Layout from "../components/Layout";
 
 export async function getServerSideProps() {
   const allMovies = await getAllMovies();
@@ -12,19 +13,19 @@ export async function getServerSideProps() {
   };
 }
 
-export default function Home({ allMovies }) {
+function Home({ allMovies }) {
   const { results } = allMovies.params;
   return (
-    <div className={styles.container}>
-      <Head>
-        <title>Movies</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-      <main className={styles.main}>
-        {results.map((movie, id) => (
-          <Movie movie={movie} key={id}/>
-        ))} 
-      </main>
-    </div>
+    <Layout>
+      <div className={styles.container}>
+        <main className={styles.main}>
+          {results.map((movie, id) => (
+            <Movie movie={movie} key={id} />
+          ))}
+        </main>
+      </div>
+    </Layout>
   );
 }
+
+export default Home;

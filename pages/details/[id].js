@@ -18,9 +18,6 @@ export default function Details({ allMovies }) {
   } = allMovies.data;
   return (
     <Layout>
-      <Head>
-        <title>{title}</title>
-      </Head>
       <article>
         <div className={styles.container} key={id}>
           <img
